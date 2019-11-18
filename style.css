@@ -1,0 +1,60 @@
+body {
+  background-image: url("background.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Quicksand", sans-serif;
+}
+
+section {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  width: 50%;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+}
+
+h1 {
+  display: hidden;
+}
+
+h2 {
+  font-family: "Dancing Script", cursive;
+  font-size: 36px;
+}
+
+/* the only way I could move the footer to the bottom right corner,
+I don't think this is the best practice but it worked :/ */
+
+footer {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  font-size: 12px;
+  margin-left: 44%;
+}
+
+p {
+  padding-right: 10px;
+}
+
+/* added / changed new background color to darker grey
+added / changed the text color to white
+changed the shape of button using border radius*/
+
+form > .enter {
+  font-size: 18px;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 12px;
+  background-color: rgb(163, 152, 152);
+  color: rgb(255, 255, 255);
+
+}
