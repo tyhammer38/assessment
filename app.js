@@ -23,7 +23,7 @@ quotes = [
 
 function getRandomQuote() {
   index = Math.floor(Math.random() * quotes.length);
-  return quotes[4];
+  return quotes[index];
 }
 
 app.use(cors());
@@ -31,25 +31,19 @@ app.use(express.static("public"));
 
 app.get("/", (req, res) => res.send("index"));
 
-// write route to get all quotes below this line
+app.get("/quotes", (req, res) => res.send(quotes));
 
-app.post('/', (req, res) => {
-  const name = req.body.name;
-   res.send(quotes.forEach(quote => {
-     
-   });)
+app.get("/randomQuote", (req, res) => res.send(getRandomQuote()));
+
+app.get("/quotes/:index", (req, res) => {
+  let index = parseInt(req.params.index);
+  if (index >= quotes.length || index < 1) {
+    res.send({
+      error: `Choose a number between 1 and ${quotes.length}`
+    });
+  } else {
+    res.send(quotes[index - 1]);
+  }
 });
-
-// write route to get a random quote below this line
-
-// (insert your code here)
-
-//---------------------------
-
-// make sure route can handle errors if index is out of range
-
-app.get("/quotes/:index", (req, res) => res.send(quotes[req.params.index]));
-
-//---------------------------
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
